@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+		<title>Table of Contents</title>
+		<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/esri/css/esri.css" />
+		<link rel="stylesheet" type="text/css" href="src/agsjs/css/agsjs.css" />
+		<style>
+			html, body {
+				height: 98%;
+				width: 98%;
+				margin: 0;
+				padding: 5px;
+				font-family: helvetica, arial, sans-serif;
+				font-size: 90%;
+			}
+
+			#leftPane {
+				width: 280px;
+				overflow: auto
+			}
+
+			/* this line hide layers when out of scale for he inline TOC */
+			.agsjsTOCOutOfScale {
+				/*  display: none;*/
+			}
+		</style>
+
+		<!-- Load dojoConfig-->
+		<script type="text/javascript">
+			// helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+			// http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+			var dojoConfig = {
+				paths : {
+					//if you want to host on your own server, download and put in folders then use path like:
+					agsjs : location.pathname.replace(/\/[^/]+$/, '') + '/src/agsjs'
+				}
+			};
+		</script>
+
+		<!-- Load ArcGIS Javascript API version 3.7-->
+		<script src="//js.arcgis.com/3.11/"></script>
+
+		<!-- Legend.js-->
+		<script type="text/javascript" src="js/legend.js"></script>
+	</head>
+
+	<!--  The body-->
+	<body class="claro">
+		<div id="content" data-dojo-type="dijit/layout/BorderContainer" design="headline" gutters="true" style="width: 100%; height: 100%; margin: 0;">
+
+			<!-- Header Pane Div-->
+			<div id="header" data-dojo-type="dijit/layout/ContentPane" region="top">
+				<ul style="margin:2px">
+					Map of malawi
+                    <!-- Map Title and Controls go here--> 
+				</ul>
+			</div>
+
+			<!-- Left Pane Div-->
+			<div data-dojo-type="dijit/layout/ContentPane" id="leftPane" region="left" splitter="true">
+				<div id="tocDiv"></div>
+			</div>
+			<div id="map" data-dojo-type="dijit/layout/ContentPane" region="center"></div>
+		</div>
+	</body>
+</html>

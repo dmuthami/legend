@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+		<title>Table of Contents</title>
+		<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/esri/css/esri.css" />
+		<link rel="stylesheet" type="text/css" href="src/agsjs/css/agsjs.css" />
+		<style>
+			html, body {
+				height: 98%;
+				width: 98%;
+				margin: 0;
+				padding: 5px;
+				font-family: helvetica, arial, sans-serif;
+				font-size: 90%;
+			}
+
+			#leftPane {
+				width: 280px;
+				overflow: auto
+			}
+
+			/* this line hide layers when out of scale for the inline TOC */
+			.agsjsTOCOutOfScale {
+				/*  display: none;*/
+			}
+		</style>
+		
+		<!-- Load dojoConfig-->
+		<script type="text/javascript">
+			// helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+			// http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+			var dojoConfig = {
+				paths : {
+					//if you want to host on your own server, download and put in folders then use path like:
+					agsjs : location.pathname.replace(/\/[^/]+$/, '') + '/src/agsjs'
+				}
+			};
+		</script>
+		
+		<!-- Load ArcGIS Javascript API version 3.7-->
+		<script src="//js.arcgis.com/3.7/"></script>
+		
+		<!-- Legend.js-->
+		<script type="text/javascript" src="js/legend.js"> </script>
+	</head>
+	
+	<!--  The body-->
+	<body class="claro">
+		<div id="content" data-dojo-type="dijit/layout/BorderContainer" design="headline" gutters="true" style="width: 100%; height: 100%; margin: 0;">
+			<div id="header" data-dojo-type="dijit/layout/ContentPane" region="top">
+				<div>
+					<b>Table Of Content (TOC/Legend) Widget</b>
+					<a href='toc_classic.html'>Classic Style </a>
+					| <a href='toc.html'>AMD style</a>
+					<div style="right:20px;position: absolute">
+						<a href="../docs/toc/examples.html">Documentation</a>
+					</div>
+				</div>
+				<ul style="margin:2px">
+					<li>
+						Click check box in TOC to turn on/off layers. When click on groups, all sublayers will be turned on/off.
+					</li>
+					<li>
+						Click
+						<button id="ChangeFeatureRenderer" disabled="disabled">
+							ChangeFeatureRenderer
+						</button>
+						, notice TOC refreshed to reflect the new renderer of FeatureLayer.
+					</li>
+					<li>
+						Click
+						<button id="SetVisibleLayersProgramatically" disabled="disabled"">
+						SetVisibleLayersProgramatically
+						</button>
+						to programatically turn layer on/off, notice TOC automatically sync with model(no refresh needed).
+						</li>
+						<li>
+						Click
+						<button id="FindNodeByLayer" disabled="disabled">
+						FindNodeByLayer
+						</button>
+						to programatically find node for layer inside a map service, then either hide (layer id=12,"Damage Assessment") or collapse (layer id=0,"Public Safety") it.
+						</li>
+						<li>
+						Click
+						<button id="InsertNewLayer" disabled="disabled">
+						InsertNewLayer
+						</button>
+						to programmtically insert a layer then refresh TOC.
+						</li>
+						<li>
+						Click
+						<button id="SetOpacity" disabled="disabled">
+						SetOpacityProgramitically
+						</button>
+						to programmtically set transparency of a layer with slider enabled.
+						</li>
+						</ul>
+						</div>
+						<div data-dojo-type="dijit/layout/ContentPane" id="leftPane" region="left" splitter="true">
+						<div id="tocDiv"></div>
+			</div>
+			<div id="map" data-dojo-type="dijit/layout/ContentPane" region="center"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+E:\Programming\Dotnet\legend\legend\bin\legend.dll.config
+E:\Programming\Dotnet\legend\legend\bin\legend.dll
+E:\Programming\Dotnet\legend\legend\bin\legend.pdb
+E:\Programming\Dotnet\legend\legend\obj\Debug\legend.csprojResolveAssemblyReference.cache
+E:\Programming\Dotnet\legend\legend\obj\Debug\legend.dll
+E:\Programming\Dotnet\legend\legend\obj\Debug\legend.pdb
